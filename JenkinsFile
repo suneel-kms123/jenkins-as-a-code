@@ -1,0 +1,5 @@
+pipeline{
+  stage ('dream') {
+    echo "hello world"  
+  }
+}
