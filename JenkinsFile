@@ -1,7 +1,9 @@
-pipeline{
-  stages{
-    stage ('dream') {
-     echo "hello world"  
-  }
+pipeline {
+  stages {
+    stage ("dream") {
+     steps{
+          echo "hello world"  
+          }
+     }
  }
 }
