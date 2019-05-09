@@ -1,5 +1,7 @@
 pipeline{
-  stage ('dream') {
-    echo "hello world"  
+  stages{
+    stage ('dream') {
+     echo "hello world"  
   }
+ }
 }
