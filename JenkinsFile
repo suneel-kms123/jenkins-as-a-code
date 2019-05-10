@@ -1,3 +1,4 @@
+
 pipeline {
   agent any
   stages {
@@ -5,7 +6,7 @@ pipeline {
      steps{
       step('wget'){
             echo "hello world"  
-            wget https://arm.mo.sw.ericsson.se/artifactory/proj-sdncevip-dev-local/org/opendaylight/integration/karaf/karaf-0.8.4-20190508.063722-431.zip
+            sh 'wget https://arm.mo.sw.ericsson.se/artifactory/proj-sdncevip-dev-local/org/opendaylight/integration/karaf/karaf-0.8.4-20190508.063722-431.zip'
        }
        step(){
          unzip *.zip
