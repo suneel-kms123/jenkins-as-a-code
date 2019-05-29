@@ -7,4 +7,7 @@ WORKDIR /tmp/ansible
 ENV PATH /tmp/ansible/bin:/sbin:/usr/sbin:/usr/bin
 ENV ANSIBLE_LIBRARY /tmp/ansible/library
 ENV PYTHONPATH /tmp/ansible/lib:$PYTHON_PATH
+RUN git clone https://github.com/suneel-kms123/jenkins-as-a-code /tmp/example
+ADD inventory /etc/ansible/hosts
+WORKDIR /tmp/example
 RUN ansible-playbook webserver.yaml -c local
