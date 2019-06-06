@@ -7,6 +7,6 @@ RUN apt-get install --assume-yes maven
 RUN apt-get install --assume-yes ssh
 RUN apt-get install --assume-yes default-jdk
 RUN apt-get install --assume-yes curl
-RUN git clone ssh://sdnbld@gerrit.ericsson.se:29418/ODL/E_netvirt
+RUN git clone git clone https://equubbg@gerrit.ericsson.se/a/ODL/E_netvirt
 COPY sdnc-maven-sfi-oxygen /home
 RUN mvn clean install -s /home/sdnc-maven-sfi-oxygen
