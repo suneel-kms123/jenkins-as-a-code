@@ -1,13 +1,11 @@
 FROM ansible/ubuntu14.04-ansible:stable
 
 RUN apt-get -y update
-RUN apt-get install -y python-yaml python-jinja2 git
-RUN git clone http://github.com/ansible/ansible.git /tmp/ansible
-WORKDIR /tmp/ansible
-ENV PATH /tmp/ansible/bin:/sbin:/usr/sbin:/usr/bin
-ENV ANSIBLE_LIBRARY /tmp/ansible/library
-ENV PYTHONPATH /tmp/ansible/lib:$PYTHON_PATH
-RUN git clone https://github.com/suneel-kms123/jenkins-as-a-code /tmp/example
-ADD inventory /etc/ansible/hosts
-WORKDIR /tmp/example
-RUN ansible-playbook webserver.yaml -c local
+RUN apt-get install --assume-yes python
+RUN apt-get install --assume-yes git
+RUN apt-get install --assume-yes maven
+RUN apt-get install --assume-yes ssh
+RUN apt-get install --assume-yes default-jdk
+RUN apt-get install --assume-yes curl
+git clone ssh://sdnbld@gerrit.ericsson.se:29418/ODL/E_netvirt
+mvn clean install 
