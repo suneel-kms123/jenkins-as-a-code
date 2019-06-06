@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0" 
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
+
+  <pluginGroups>
+  </pluginGroups>
+  <proxies>
+    <proxy>
+      <id>optional</id>
+      <active>true</active>
+      <protocol>http</protocol>
+      <username>proxyuser</username>
+      <password>proxypass</password>
+      <host>www-proxy.ericsson.se</host>
+      <port>8080</port>
+      <nonProxyHosts>*.ericsson.se|arm.mo.sw.ericsson.se|localhost|127.0.0.1</nonProxyHosts>
+    </proxy>
+
+  </proxies>
+
+  <mirrors>
+    <mirror>
+      <id>armseln</id>
+      <mirrorOf>external:*</mirrorOf>
+      <name>armseln</name>
+      <url>https://arm.mo.sw.ericsson.se/artifactory/proj-sdnc-dev-local/</url>
+    </mirror>
+  </mirrors>
+
+  <profiles>
+    <profile>
+      <id>opendaylight-release</id>
+      <repositories>
+        <repository>
+          <id>opendaylight-mirror</id>
+          <name>opendaylight-mirror</name>
+          <url>http://nexus.opendaylight.org/content/repositories/public/</url>
+          <releases>
+            <enabled>true</enabled>
+            <updatePolicy>never</updatePolicy>
+          </releases>
+          <snapshots>
+            <enabled>false</enabled>
+          </snapshots>
+        </repository>
+      </repositories>
+      <pluginRepositories>
+        <pluginRepository>
+          <id>opendaylight-mirror</id>
+          <name>opendaylight-mirror</name>
+          <url>http://nexus.opendaylight.org/content/repositories/public/</url>
+          <releases>
+            <enabled>true</enabled>
+            <updatePolicy>never</updatePolicy>
+          </releases>
+          <snapshots>
+            <enabled>false</enabled>
+          </snapshots>
+        </pluginRepository>
+      </pluginRepositories>
+    </profile>
+
+    <profile>
+      <id>opendaylight-snapshots</id>
+      <repositories>
+        <repository>
+          <id>opendaylight-snapshot</id>
+          <name>opendaylight-snapshot</name>
+          <url>http://nexus.opendaylight.org/content/repositories/opendaylight.snapshot/</url>
+          <releases>
+            <enabled>false</enabled>
+          </releases>
+          <snapshots>
+            <enabled>true</enabled>
+          </snapshots>
+        </repository>
+      </repositories>
+      <pluginRepositories>
+        <pluginRepository>
+          <id>opendaylight-snapshot</id>
+          <name>opendaylight-snapshot</name>
+          <url>http://nexus.opendaylight.org/content/repositories/opendaylight.snapshot/</url>
+          <releases>
+            <enabled>false</enabled>
+          </releases>
+          <snapshots>
+            <enabled>true</enabled>
+          </snapshots>
+        </pluginRepository>
+      </pluginRepositories>
+    </profile>
+  </profiles>
+
+  <activeProfiles>
+    <activeProfile>opendaylight-release</activeProfile>
+    <activeProfile>opendaylight-snapshots</activeProfile>
+  </activeProfiles>
+
+</settings>
