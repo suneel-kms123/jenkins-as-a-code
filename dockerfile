@@ -7,4 +7,4 @@ RUN apt-get install --assume-yes maven
 RUN apt-get install --assume-yes ssh
 RUN apt-get install --assume-yes default-jdk
 RUN apt-get install --assume-yes curl
-
+COPY ~/.ssh /root/ --assume-yes
