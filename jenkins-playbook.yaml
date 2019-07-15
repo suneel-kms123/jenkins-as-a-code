@@ -1,0 +1,17 @@
+---
+- hosts: webserver
+  remote_user: remote_username
+  become: yes
+  become_method: sudo
+  tasks:
+    - name: Build Docker image from Dockerfile
+      docker_image:
+        name: web
+        path: docker
+        state: build
+        
+    - name: Running the container
+      docker_container:
+        image: web:latest
+        path: docker
+        state: running
